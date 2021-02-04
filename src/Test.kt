@@ -1,3 +1,4 @@
 fun main(args: Array<String>) {
-    println("selam kenks")
+    // val is immutable. same as final in java
+    val num: Int
 }
