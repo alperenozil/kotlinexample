@@ -10,5 +10,9 @@ fun main(args: Array<String>) {
 }
 
 class Employee(var name: String, val id: Int){
-
+    override fun equals(obj: Any?): Boolean {
+        if(obj is Employee){
+            return name==obj.name && id==obj.id
+        } else return false
+    }
 }
