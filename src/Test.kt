@@ -14,6 +14,9 @@ fun main(args: Array<String>) {
     if(someobj is Employee){
         println("someobj is an object created from Employee")
     }
+    println(employee3)
+    val change=4.22
+    println("value of change is $$change")
 }
 
 class Employee(var name: String, val id: Int){
@@ -25,4 +28,9 @@ class Employee(var name: String, val id: Int){
         }
         return false
     }
+
+    override fun toString(): String {
+        return "Employee(name='$name', id=$id)"
+    }
+
 }
