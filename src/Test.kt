@@ -10,6 +10,10 @@ fun main(args: Array<String>) {
     //for(name in names) print(name+" ")
     println(employee1.equals(employee2))
     println(employee1==employee3)
+    val someobj:Any=employee1
+    if(someobj is Employee){
+        println("someobj is an object created from Employee")
+    }
 }
 
 class Employee(var name: String, val id: Int){
