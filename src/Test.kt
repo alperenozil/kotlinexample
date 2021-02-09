@@ -6,8 +6,11 @@ fun main(args: Array<String>) {
     val employee1=Employee("Alperen",500)
     val employee2=Employee("Ozil",500)
     val employee3=Employee("Alperen",500)
-    val names = arrayListOf("ali","veli","49","50")
+    val names = arrayOf("ali","veli","49","50")
+    val nums = arrayOf<Long>(3,45,56,1)
+    val evenNums = Array(22){e->2*e}// if our array has a pattern, we can write it via lambda expression
     for(name in names) print(name+" ")
+    for (num in evenNums) println(num)
     println(employee1.equals(employee2))
     println(employee1==employee3)
     val someobj:Any=employee1
