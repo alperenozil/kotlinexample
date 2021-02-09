@@ -1,5 +1,6 @@
 fun main(args: Array<String>) {
     // val is immutable. same as final in java
+
     var num: Int
     num=10
     val employee1=Employee("Alperen",500)
