@@ -2,12 +2,11 @@ fun main(args: Array<String>) {
     // val is immutable. same as final in java
     var num: Int
     num=10
-    num=20
     val employee1=Employee("Alperen",500)
     val employee2=Employee("Ozil",500)
     val employee3=Employee("Alperen",500)
     val names = arrayListOf("ali","veli","49","50")
-    //for(name in names) print(name+" ")
+    for(name in names) print(name+" ")
     println(employee1.equals(employee2))
     println(employee1==employee3)
     val someobj:Any=employee1
