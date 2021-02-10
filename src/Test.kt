@@ -20,9 +20,14 @@ fun main(args: Array<String>) {
     println(employee3)
     val change=4.22
     println("value of change is $$change")
-    // null pointer exception -> if we say it is nullable and assign a "can't be null" value to it we get a null pointer exception
-    val str : String? = null
-    val str1 = str!!
+    // null pointer exception -> if we say it is nullable and assign a "can't be null" value to it, we get a null pointer exception.
+
+    /*****************************
+     *                           *
+     *  val str : String? = null *
+     *  val str1 = str!!         *
+     *                           *
+     *****************************/
 }
 
 class Employee(var name: String, val id: Int){
