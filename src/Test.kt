@@ -3,9 +3,9 @@ fun main(args: Array<String>) {
 
     var num: Int
     num=10
-    val employee1=Employee("Alperen",500)
-    val employee2=Employee("Ozil",500)
-    val employee3=Employee("Alperen",500)
+    val employee1=Employee("Alperen",500,true)
+    val employee2=Employee("Ozil",500,true)
+    val employee3=Employee("Alperen",500,false)
     val names = arrayOf("ali","veli","49","50")
     val nums = arrayOf<Long>(3,45,56,1)
     val evenNums = Array(22){e->2*e}// if our array has a pattern, we can write it via lambda expression
@@ -30,7 +30,7 @@ fun main(args: Array<String>) {
      *****************************/
 }
 
-class Employee (var name: String, var id: Int){
+class Employee (val name: String, val id: Int, val fullTime: Boolean){
     override fun equals(obj: Any?): Boolean {
         if(obj is Employee){
             println("name: "+name+" obj.name: "+obj.name)
@@ -41,6 +41,6 @@ class Employee (var name: String, var id: Int){
     }
 
     override fun toString(): String {
-        return "Employee(name='$name', id=$id)"
+        return "Employee(name='$name', id=$id, fulltime=$fullTime)"
     }
 }
