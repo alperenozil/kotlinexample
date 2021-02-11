@@ -30,11 +30,7 @@ fun main(args: Array<String>) {
      *****************************/
 }
 
-class Employee constructor(var name: String, var id: Int){
-    init {
-        this.name=name
-        this.id=id
-    }
+class Employee (var name: String, var id: Int){
     override fun equals(obj: Any?): Boolean {
         if(obj is Employee){
             println("name: "+name+" obj.name: "+obj.name)
@@ -47,5 +43,4 @@ class Employee constructor(var name: String, var id: Int){
     override fun toString(): String {
         return "Employee(name='$name', id=$id)"
     }
-
 }
