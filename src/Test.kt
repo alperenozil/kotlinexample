@@ -30,7 +30,11 @@ fun main(args: Array<String>) {
      *****************************/
 }
 
-class Employee(var name: String, val id: Int){
+class Employee constructor(var name: String, var id: Int){
+    init {
+        this.name=name
+        this.id=id
+    }
     override fun equals(obj: Any?): Boolean {
         if(obj is Employee){
             println("name: "+name+" obj.name: "+obj.name)
