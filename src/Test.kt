@@ -17,7 +17,9 @@ fun main(args: Array<String>) {
     if(someobj is Employee){
         println("someobj is an object created from Employee")
     }
-    println(employee3)
+    //println(employee3.name) -> we can not change the value with this dot
+    employee3.setName("newname")
+    println("our own setter method is working and employee3 name is " + employee3.getName()) // -> we can define our own getter method
     val change=4.22
     println("value of change is $$change")
     // null pointer exception -> if we say it is nullable and assign a "can't be null" value to it, we get a null pointer exception.
@@ -30,7 +32,7 @@ fun main(args: Array<String>) {
      *****************************/
 }
 
-class Employee (val name: String, val id: Int, val fullTime: Boolean){
+class Employee (private var name: String, val id: Int, val fullTime: Boolean){
     override fun equals(obj: Any?): Boolean {
         if(obj is Employee){
             println("name: "+name+" obj.name: "+obj.name)
@@ -38,6 +40,14 @@ class Employee (val name: String, val id: Int, val fullTime: Boolean){
             return name==obj.name && id==obj.id
         }
         return false
+    }
+
+    fun setName(newName: String){
+        name=newName
+    }
+
+    fun getName(): String{
+        return name
     }
 
     override fun toString(): String {
