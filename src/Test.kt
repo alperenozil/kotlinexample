@@ -1,3 +1,4 @@
+val MY_CONSTANT=100
 fun main(args: Array<String>) {
     // val is immutable. same as final in java
 
@@ -30,6 +31,8 @@ fun main(args: Array<String>) {
      *  val str1 = str!!         *
      *                           *
      *****************************/
+
+    println(MY_CONSTANT)
 }
 
 class Employee (private var name: String, val id: Int, val fullTime: Boolean){
