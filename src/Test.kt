@@ -35,7 +35,7 @@ fun main(args: Array<String>) {
     println(MY_CONSTANT)
 }
 
-class Employee (private var name: String, val id: Int, val fullTime: Boolean){
+open class Employee (private var name: String, val id: Int, val fullTime: Boolean){
     override fun equals(obj: Any?): Boolean {
         if(obj is Employee){
             println("name: "+name+" obj.name: "+obj.name)
@@ -57,3 +57,5 @@ class Employee (private var name: String, val id: Int, val fullTime: Boolean){
         return "Employee(name='$name', id=$id, fulltime=$fullTime)"
     }
 }
+
+class OldEmployee(name: String, id: Int, fullTime: Boolean) : Employee(name, id, fullTime)
