@@ -35,8 +35,13 @@ fun main(args: Array<String>) {
     println(MY_CONSTANT)
 }
 
-open class Employee(private var name: String, val id: Int, val fullTime: Boolean) : MyInterface {
+open class Employee(private var name: String, val id: Int, val fullTime: Boolean, override var firstVariable: Int) : MyInterface, MySubInterface {
     override fun myFunction(str: String): String {
+        firstVariable=12
+        TODO("Not yet implemented")
+    }
+
+    override fun mySubFunction(num: Int): String {
         TODO("Not yet implemented")
     }
 
@@ -62,10 +67,11 @@ open class Employee(private var name: String, val id: Int, val fullTime: Boolean
     }
 }
 
-class OldEmployee(name: String, id: Int, fullTime: Boolean) : Employee(name, id, fullTime)
+class OldEmployee(name: String, id: Int, fullTime: Boolean, override var firstVariable: Int) : Employee(name, id, fullTime)
 
 interface MyInterface {
 
+    var firstVariable:Int
     fun myFunction(str: String): String
 
 }
