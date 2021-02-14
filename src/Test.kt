@@ -35,7 +35,11 @@ fun main(args: Array<String>) {
     println(MY_CONSTANT)
 }
 
-open class Employee (private var name: String, val id: Int, val fullTime: Boolean){
+open class Employee(private var name: String, val id: Int, val fullTime: Boolean) : MyInterface {
+    override fun myFunction(str: String): String {
+        TODO("Not yet implemented")
+    }
+
     override fun equals(obj: Any?): Boolean {
         if(obj is Employee){
             println("name: "+name+" obj.name: "+obj.name)
@@ -59,3 +63,15 @@ open class Employee (private var name: String, val id: Int, val fullTime: Boolea
 }
 
 class OldEmployee(name: String, id: Int, fullTime: Boolean) : Employee(name, id, fullTime)
+
+interface MyInterface {
+
+    fun myFunction(str: String): String
+
+}
+
+interface MySubInterface: MyInterface{
+
+    fun mySubFunction(num: Int):String
+
+}
