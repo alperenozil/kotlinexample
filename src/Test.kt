@@ -1,7 +1,6 @@
 val MY_CONSTANT=100
 fun main(args: Array<String>) {
     // val is immutable. same as final in java
-
     var num: Int
     num=10
     val employee1=Employee("Alperen",500,true)
@@ -35,16 +34,7 @@ fun main(args: Array<String>) {
     println(MY_CONSTANT)
 }
 
-open class Employee(private var name: String, val id: Int, val fullTime: Boolean, override var firstVariable: Int) : MyInterface, MySubInterface {
-    override fun myFunction(str: String): String {
-        firstVariable=12
-        TODO("Not yet implemented")
-    }
-
-    override fun mySubFunction(num: Int): String {
-        TODO("Not yet implemented")
-    }
-
+open class Employee (private var name: String, val id: Int, val fullTime: Boolean){
     override fun equals(obj: Any?): Boolean {
         if(obj is Employee){
             println("name: "+name+" obj.name: "+obj.name)
@@ -67,17 +57,4 @@ open class Employee(private var name: String, val id: Int, val fullTime: Boolean
     }
 }
 
-class OldEmployee(name: String, id: Int, fullTime: Boolean, override var firstVariable: Int) : Employee(name, id, fullTime)
-
-interface MyInterface {
-
-    var firstVariable:Int
-    fun myFunction(str: String): String
-
-}
-
-interface MySubInterface: MyInterface{
-
-    fun mySubFunction(num: Int):String
-
-}
+class OldEmployee(name: String, id: Int, fullTime: Boolean) : Employee(name, id, fullTime)
