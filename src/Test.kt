@@ -1,3 +1,5 @@
+import java.time.Year
+
 val MY_CONSTANT=100
 fun main(args: Array<String>) {
     // val is immutable. same as final in java
@@ -32,6 +34,8 @@ fun main(args: Array<String>) {
      *****************************/
 
     println(MY_CONSTANT)
+    println(CompanyCommunications.getTagLine())
+    println(CompanyCommunications.getCopyrightLine())
 }
 
 open class Employee (private var name: String, val id: Int, val fullTime: Boolean){
@@ -58,3 +62,9 @@ open class Employee (private var name: String, val id: Int, val fullTime: Boolea
 }
 
 class OldEmployee(name: String, id: Int, fullTime: Boolean) : Employee(name, id, fullTime)
+
+object CompanyCommunications{ //singleton example
+    val currentYear= Year.now().value
+    fun getTagLine()="Our company sucks!"
+    fun getCopyrightLine()="Copyright. All rights reserved."
+}
