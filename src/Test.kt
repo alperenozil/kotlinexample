@@ -36,6 +36,13 @@ fun main(args: Array<String>) {
     println(MY_CONSTANT)
     println(CompanyCommunications.getTagLine())
     println(CompanyCommunications.getCopyrightLine())
+    println("static in kotlin")
+    print("before change: ")
+    println(CompanyCommunications.reachAsStatic())
+    println(CompanyCommunications.changeAsStatic(123))
+    print("after change: ")
+    println(CompanyCommunications.reachAsStatic())
+
 }
 
 open class Employee (private var name: String, val id: Int, val fullTime: Boolean){
@@ -64,7 +71,13 @@ open class Employee (private var name: String, val id: Int, val fullTime: Boolea
 class OldEmployee(name: String, id: Int, fullTime: Boolean) : Employee(name, id, fullTime)
 
 object CompanyCommunications{ //singleton example
-    val currentYear= Year.now().value
+    var currentYear= Year.now().value
     fun getTagLine()="Our company sucks!"
     fun getCopyrightLine()="Copyright. All rights reserved."
+    fun reachAsStatic():Int{
+        return currentYear;
+    }
+    fun changeAsStatic(value:Int){
+        currentYear=value;
+    }
 }
