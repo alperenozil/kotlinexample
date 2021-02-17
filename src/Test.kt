@@ -43,6 +43,15 @@ fun main(args: Array<String>) {
     print("after change: ")
     println(CompanyCommunications.reachAsStatic())
 
+    val range=1..5
+    val charRange='a'..'z'
+    for (num in range){
+        print(num)
+    }
+    for (char in charRange){
+        print(char)
+    }
+
 }
 
 open class Employee (private var name: String, val id: Int, val fullTime: Boolean){
