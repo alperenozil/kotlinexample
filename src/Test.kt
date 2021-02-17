@@ -45,12 +45,17 @@ fun main(args: Array<String>) {
 
     val range=1..5
     val charRange='a'..'z'
+    val stringRange="AAA".."XYZ"
     for (num in range){
         print(num)
     }
-    for (char in charRange){
-        print(char)
-    }
+    println()
+    print("2 in range of 1 to 5 ")
+    println(2 in range)
+    print("a in the range of a to z ")
+    println('a' in charRange)
+    print("BBB in the range of AAA to ZZZ ")
+    println("BBB" in stringRange)
 
 }
 
