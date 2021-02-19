@@ -56,13 +56,15 @@ fun main(args: Array<String>) {
     println('a' in charRange)
     print("BBB in the range of AAA to ZZZ ")
     println("BBB" in stringRange)
-    val number=100
+    val number=1200
     when(number){
         100 -> print("100")
         200 -> print("200")
         300 -> print("300")
         else -> print("no match")
     }
+    val mutableList = mutableListOf<String>("teyo","emmi","fikralarla","türkiye")
+    print(mutableList)
 }
 
 open class Employee (private var name: String, val id: Int, val fullTime: Boolean){
