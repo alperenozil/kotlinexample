@@ -75,6 +75,12 @@ fun main(args: Array<String>) {
             3 to Car("1silver", "1Honda", 2013)
     )
     println("mutable map: "+mutableMap)//hashmap
+    val pair=Pair(10,"ten");
+    /*val firstValue=pair.first;
+    val secondValue=pair.second;*/
+    val(firstValue,secondValue)=pair
+    println(firstValue)
+    println(secondValue)
 }
 
 open class Employee(private var name: String, val id: Int, val fullTime: Boolean) {
