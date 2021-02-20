@@ -1,28 +1,28 @@
 import java.time.Year
 
-val MY_CONSTANT=100
+val MY_CONSTANT = 100
 fun main(args: Array<String>) {
     // val is immutable. same as final in java
     var num: Int
-    num=10
-    val employee1=Employee("Alperen",500,true)
-    val employee2=Employee("Ozil",500,true)
-    val employee3=Employee("Alperen",500,false)
-    val names = arrayOf("ali","veli","49","50")
-    val nums = arrayOf<Long>(3,45,56,1)
-    val evenNums = Array(22){e->2*e}// if our array has a pattern, we can write it via lambda expression
-    for(name in names) print(name+" ")
+    num = 10
+    val employee1 = Employee("Alperen", 500, true)
+    val employee2 = Employee("Ozil", 500, true)
+    val employee3 = Employee("Alperen", 500, false)
+    val names = arrayOf("ali", "veli", "49", "50")
+    val nums = arrayOf<Long>(3, 45, 56, 1)
+    val evenNums = Array(22) { e -> 2 * e }// if our array has a pattern, we can write it via lambda expression
+    for (name in names) print(name + " ")
     for (num in evenNums) println(num)
     println(employee1.equals(employee2))
-    println(employee1==employee3)
-    val someobj:Any=employee1
-    if(someobj is Employee){
+    println(employee1 == employee3)
+    val someobj: Any = employee1
+    if (someobj is Employee) {
         println("someobj is an object created from Employee")
     }
     //println(employee3.name) -> we can not change the value with this dot
     employee3.setName("newname")
     println("our own setter method is working and employee3 name is " + employee3.getName()) // -> we can define our own getter method
-    val change=4.22
+    val change = 4.22
     println("value of change is $$change")
     // null pointer exception -> if we say it is nullable and assign a "can't be null" value to it, we get a null pointer exception.
 
@@ -43,10 +43,10 @@ fun main(args: Array<String>) {
     print("after change: ")
     println(CompanyCommunications.reachAsStatic())
 
-    val range=1..5
-    val charRange='a'..'z'
-    val stringRange="AAA".."XYZ"
-    for (num in range){
+    val range = 1..5
+    val charRange = 'a'..'z'
+    val stringRange = "AAA".."XYZ"
+    for (num in range) {
         print(num)
     }
     println()
@@ -56,32 +56,42 @@ fun main(args: Array<String>) {
     println('a' in charRange)
     print("BBB in the range of AAA to ZZZ ")
     println("BBB" in stringRange)
-    val number=1200
-    when(number){
+    val number = 1200
+    when (number) {
         100 -> print("100")
         200 -> print("200")
         300 -> print("300")
         else -> print("no match")
     }
-    val mutableList = mutableListOf<String>("teyo","emmi","fikralarla","türkiye")
+    val mutableList = mutableListOf<String>("teyo", "emmi", "fikralarla", "türkiye")
     print(mutableList)
+    val immutableMap = mapOf<Int, Car>(1 to Car("green", "Toyota", 2015),
+            2 to Car("red", "ford", 2016),
+            3 to Car("silver", "Honda", 2013)
+    )
+    println("immutable map: "+immutableMap)//linked hashmap
+    val mutableMap = hashMapOf<Int, Car>(1 to Car("1green", "1Toyota", 2015),
+            2 to Car("1red", "1ford", 2016),
+            3 to Car("1silver", "1Honda", 2013)
+    )
+    println("mutable map: "+mutableMap)//hashmap
 }
 
-open class Employee (private var name: String, val id: Int, val fullTime: Boolean){
+open class Employee(private var name: String, val id: Int, val fullTime: Boolean) {
     override fun equals(obj: Any?): Boolean {
-        if(obj is Employee){
-            println("name: "+name+" obj.name: "+obj.name)
-            println("id: "+id+" obj.id: "+obj.id)
-            return name==obj.name && id==obj.id
+        if (obj is Employee) {
+            println("name: " + name + " obj.name: " + obj.name)
+            println("id: " + id + " obj.id: " + obj.id)
+            return name == obj.name && id == obj.id
         }
         return false
     }
 
-    fun setName(newName: String){
-        name=newName
+    fun setName(newName: String) {
+        name = newName
     }
 
-    fun getName(): String{
+    fun getName(): String {
         return name
     }
 
@@ -92,14 +102,19 @@ open class Employee (private var name: String, val id: Int, val fullTime: Boolea
 
 class OldEmployee(name: String, id: Int, fullTime: Boolean) : Employee(name, id, fullTime)
 
-object CompanyCommunications{ //singleton example
-    var currentYear= Year.now().value
-    fun getTagLine()="Our company sucks!"
-    fun getCopyrightLine()="Copyright. All rights reserved."
-    fun reachAsStatic():Int{
+object CompanyCommunications { //singleton example
+    var currentYear = Year.now().value
+    fun getTagLine() = "Our company sucks!"
+    fun getCopyrightLine() = "Copyright. All rights reserved."
+    fun reachAsStatic(): Int {
         return currentYear;
     }
-    fun changeAsStatic(value:Int){
-        currentYear=value;
+
+    fun changeAsStatic(value: Int) {
+        currentYear = value;
     }
+}
+
+class Car(val color: String, val model: String, val year: Int) {
+
 }
